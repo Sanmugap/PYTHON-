@@ -1,0 +1,17 @@
+class roman_solution:
+    def int_to_Roman(num):
+        val = [1000, 900,500,400,100,90,50,40,9,5,4,1]
+        syb = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"]
+        roman_num = ""
+        i = 0
+        if(n<1 or n>3999):
+            print("ENTER A GOOD VALUE!")
+        else:
+                while num>0:
+                    if(num-val[i]>=0):
+                        roman_num+=syb[i]
+                        num-=val[i]
+                    else:
+                        i+=1
+                return roman_num n=int(input("ENTER A NUMBER:"))
+print("roman numeral of given number is:",roman_solution.int_to_Roman(n))
