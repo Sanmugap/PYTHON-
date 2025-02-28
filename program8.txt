@@ -1,15 +1,25 @@
-class employee():
-    empcount = 0
-    def init (self, eid, name, salary, did):
-        self.eid = eid
-        self.name = name
-        self.salary = salary
-        self.did = did
-        employee.empcount += 1
-    def displayemployee(self):
-        print("eid:", self.eid, ",name:", self.name, ",salary:", self.salary, ",did:", self.did)
-        emp1 = employee(1, "zara", 2000, 10)
-        emp2 = employee(2, "meera", 4000, 20)
-        emp1.displayemployee()
-        emp2.displayemployee()
-        print("total employee %d" %employee.empcount)
+import re
+def text_match(text):
+    patterns= '^[a-zA-Z0-9_]*$'
+    if re.search(patterns,text):
+        return 'found a match!'
+    else:
+        return('not matched!')
+def end_num(string):
+    text= re.compile(r".*[0-9]$")
+    if text.match(string):
+        return "true"
+    else:
+        return "false"
+def email_match(email):
+    regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
+    if(re.search(regex,email)):
+        return "valid email!"
+    else:
+        return('not valid!')
+    inp=(str(input( ' Enter the string want to check: ' )))
+    print(text_match(inp))
+    inp=(str(input( ' Enter the string ended with number to check: ' )))
+    print(end_num(inp))
+    user_mail=(input( ' Enter your email id: ' ))
+    print(email_match(user_mail))
